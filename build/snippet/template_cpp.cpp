@@ -3,12 +3,10 @@
 //-----------------------------
 // STL
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <cmath>
-
-// ROS2
-#include <rclcpp/rclcpp.hpp>
 
 //-----------------------------
 // Prototype declaration
@@ -33,20 +31,7 @@
  */
 int main(int argc, char **argv)
 {
-	// Process initialize
-	rclcpp::init(argc, argv);		// ROS2 initialize
-	
-	// Main process loop setting
-	rclcpp::WallRate loop(1);		// loop freq.[Hz]
-
-	// Main loop
-	while(rclcpp::ok()){
-		
-		loop.sleep();
-	}
-	
-	// process end
-	rclcpp::shutdown();
+    
 	return 0;
 }
 

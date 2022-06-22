@@ -7,7 +7,7 @@
 #include <string>
 #include <cmath>
 
-// ROS2 library
+// ROS2
 #include <rclcpp/rclcpp.hpp>
 
 //-----------------------------

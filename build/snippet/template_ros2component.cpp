@@ -7,8 +7,9 @@
 #include <string>
 #include <cmath>
 #include <thread>
+#include <functional>
 
-// ROS2 library
+// ROS2
 #include <rclcpp/rclcpp.hpp>
 
 //-----------------------------
@@ -40,6 +41,10 @@ private:
  */
 CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", options)
 {
+    // using placeholders
+    using std::placeholders::_1;
+    using std::placeholders::_2;
+
     // create thread
     std::thread{
         std::bind(CLASS_NAME::Execute, this)

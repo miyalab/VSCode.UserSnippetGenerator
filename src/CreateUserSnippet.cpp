@@ -25,6 +25,8 @@ int main(int argc, char **argv)
         ofs << "\"";
         for(char c: line){
             if(c == '\t') ofs << "\\t";
+            else if(c == '\"') ofs << "\\\"";
+            else if(c == '\'') ofs << "\\\'";
             else ofs << c;
         }
         ofs << "\"," << std::endl;

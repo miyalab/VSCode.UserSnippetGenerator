@@ -35,24 +35,24 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
     using std::placeholders::_3;
 
     // Initialize parameters
-    RCLCPP_INFO(this->get_logger(), "Initialize parameters.");
-    RCLCPP_INFO(this->get_logger(), "Finish! Initialize parameters.");
+    RCLCPP_INFO(this->get_logger(), "Initialize parameters...");
+    RCLCPP_INFO(this->get_logger(), "Complete! Parameters have been initialized.");
 
     // Initialize subscriber
-    RCLCPP_INFO(this->get_logger(), "Initialize subscribers");
-    RCLCPP_INFO(this->get_logger(), "Finish! Initialize subscribers.");
+    RCLCPP_INFO(this->get_logger(), "Initialize subscribers...");
+    RCLCPP_INFO(this->get_logger(), "Complete! Subscribers have been initialized.");
 
     // Initialize publisher
-    RCLCPP_INFO(this->get_logger(), "Initialize publishers.");
-    RCLCPP_INFO(this->get_logger(), "Finish! Initialize publishers.");
+    RCLCPP_INFO(this->get_logger(), "Initialize publishers...");
+    RCLCPP_INFO(this->get_logger(), "Complete! Publishers have been initialized.");
 
     // Initialize Service-Server
-    RCLCPP_INFO(this->get_logger(), "Initialize service-server.");
-    RCLCPP_INFO(this->get_logger(), "Finish! Initialize service-server.");
+    RCLCPP_INFO(this->get_logger(), "Initialize service-server...");
+    RCLCPP_INFO(this->get_logger(), "Complete! Service-server have been initialized.");
 
     // Initialize Service-Client 
-    RCLCPP_INFO(this->get_logger(), "Initialize service-client.");
-    RCLCPP_INFO(this->get_logger(), "Finish! Initialize service-client.");
+    RCLCPP_INFO(this->get_logger(), "Initialize service-client...");
+    RCLCPP_INFO(this->get_logger(), "Complete! Service-client have been initialized.");
 
     // Main loop processing
     thread = std::make_unique<std::thread>(&CLASS_NAME::Run, this);

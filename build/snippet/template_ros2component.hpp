@@ -5,6 +5,8 @@
 // include
 //-----------------------------
 // STL
+#include <thread>
+#include <memory>
 #include <mutex>
 
 // ROS2
@@ -14,7 +16,9 @@
 // Namespace & using
 //-----------------------------
 
-
+//-----------------------------
+// Class
+//-----------------------------
 /**
  * @brief Project Name
  * 

@@ -76,7 +76,7 @@ CLASS_NAME::~CLASS_NAME()
  */
 void CLASS_NAME::Run()
 {
-    RCLCPP_INFO(this->get_logger(), "%s has started. thread id = %0x", this->get_name(),std::this_thread::get_id());
+    RCLCPP_INFO(this->get_logger(), "%s has started. thread id = %0x", this->get_name(), std::this_thread::get_id());
     
     // Main process loop setting
     rclcpp::WallRate loop(1);		// loop freq.[Hz]

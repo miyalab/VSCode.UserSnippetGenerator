@@ -40,9 +40,8 @@ int main(int argc, char **argv)
 	rclcpp::WallRate loop(1);		// loop freq.[Hz]
 
 	// Main loop
-	while(rclcpp::ok()){
+	for(; rclcpp::ok(); loop.sleep()){
 		
-		loop.sleep();
 	}
 	
 	// process end

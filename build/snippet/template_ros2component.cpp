@@ -11,7 +11,6 @@
 
 #include "template_ros2component.hpp"
 
-
 //-----------------------------
 // Namespace & using
 //-----------------------------
@@ -82,9 +81,8 @@ void CLASS_NAME::Run()
     rclcpp::WallRate loop(1);		// loop freq.[Hz]
 
     // Main loop
-    while(rclcpp::ok()){
-        
-        loop.sleep();
+    for(; rclcpp::ok(); loop.sleep()){
+
     }
 
     RCLCPP_INFO(this->get_logger(), "%s has stoped.", this->get_name());

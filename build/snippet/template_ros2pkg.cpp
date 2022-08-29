@@ -35,14 +35,10 @@ int main(int argc, char **argv)
 {
 	// Process initialize
 	rclcpp::init(argc, argv);		// ROS2 initialize
-	
-	// Main process loop setting
-	rclcpp::WallRate loop(1);		// loop freq.[Hz]
 
 	// Main loop
-	while(rclcpp::ok()){
+	for(rclcpp::WallRate loop(1); rclcpp::ok(); loop.sleep()){
 		
-		loop.sleep();
 	}
 	
 	// process end

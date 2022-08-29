@@ -57,7 +57,7 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
     RCLCPP_INFO(this->get_logger(), "Complete! Service-clients were initialized.");
 
     // Main loop processing
-    thread = std::make_unique<std::thread>(&CLASS_NAME::Run, this);
+    thread = std::make_unique<std::thread>(&CLASS_NAME::run, this);
     thread->detach();
 }
 
@@ -67,24 +67,20 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
  */
 CLASS_NAME::~CLASS_NAME()
 {
-    thread->detach();
+    thread.release();
 }
 
 /**
  * @brief Execute method
  * 
  */
-void CLASS_NAME::Run()
+void CLASS_NAME::run()
 {
     RCLCPP_INFO(this->get_logger(), "%s has started. thread id = %0x", this->get_name(), std::this_thread::get_id());
     
-    // Main process loop setting
-    rclcpp::WallRate loop(1);		// loop freq.[Hz]
-
     // Main loop
-    while(rclcpp::ok()){
+    for(rclcpp::WallRate loop(1); rclcpp::ok(); loop.sleep()){
         
-        loop.sleep();
     }
 
     RCLCPP_INFO(this->get_logger(), "%s has stoped.", this->get_name());

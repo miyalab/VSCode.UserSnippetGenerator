@@ -34,7 +34,7 @@ public:
     ~CLASS_NAME();
 private:
     std::unique_ptr<std::thread> thread;
-    void Run();
+    void run();
 };
 }
 

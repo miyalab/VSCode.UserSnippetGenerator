@@ -11,7 +11,6 @@
 
 #include "template_ros2component.hpp"
 
-
 //-----------------------------
 // Namespace & using
 //-----------------------------

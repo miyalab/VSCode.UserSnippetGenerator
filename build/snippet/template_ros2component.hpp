@@ -33,7 +33,7 @@ public:
     CLASS_NAME(rclcpp::NodeOptions options = rclcpp::NodeOptions());
     ~CLASS_NAME();
 private:
-    std::unique_ptr<std::thread> thread;
+    std::unique_ptr<std::thread> m_thread;
     void run();
 };
 }

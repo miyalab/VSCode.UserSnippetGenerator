@@ -56,8 +56,8 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
     RCLCPP_INFO(this->get_logger(), "Complete! Service-clients were initialized.");
 
     // Main loop processing
-    thread = std::make_unique<std::thread>(&CLASS_NAME::run, this);
-    thread->detach();
+    m_thread = std::make_unique<std::thread>(&CLASS_NAME::run, this);
+    m_thread->detach();
 }
 
 /**
@@ -66,7 +66,7 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
  */
 CLASS_NAME::~CLASS_NAME()
 {
-    thread.release();
+    m_thread.release();
 }
 
 /**

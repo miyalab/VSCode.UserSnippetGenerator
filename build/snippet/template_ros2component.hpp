@@ -1,5 +1,5 @@
-#ifndef _HEADER_FILE_NAME_HPP_
-#define _HEADER_FILE_NAME_HPP_
+#ifndef __HEADER_FILE_NAME_HPP__
+#define __HEADER_FILE_NAME_HPP__
 
 //-----------------------------
 // include
@@ -33,7 +33,9 @@ public:
     CLASS_NAME(rclcpp::NodeOptions options = rclcpp::NodeOptions());
     ~CLASS_NAME();
 private:
-    std::unique_ptr<std::thread> m_thread;
+    const int RATE = -1;
+    template<typename T, typename U>void forceSet(const T *value, const U &set_value){*((T*)value)=set_value;}
+    std::unique_ptr<std::thread> thread;
     void run();
 };
 }

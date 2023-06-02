@@ -37,6 +37,7 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
 
     // Initialize parameters
     RCLCPP_INFO(this->get_logger(), "Initialize parameters...");
+    this->forceSet(&this->RATE, this->declare_parameter("node.rate", 30));
     RCLCPP_INFO(this->get_logger(), "Complete! Parameters were initialized.");
 
     // Initialize subscriber
@@ -56,8 +57,8 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
     RCLCPP_INFO(this->get_logger(), "Complete! Service-clients were initialized.");
 
     // Main loop processing
-    m_thread = std::make_unique<std::thread>(&CLASS_NAME::run, this);
-    m_thread->detach();
+    this->thread = std::make_unique<std::thread>(&CLASS_NAME::run, this);
+    this->thread->detach();
 }
 
 /**
@@ -66,7 +67,7 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
  */
 CLASS_NAME::~CLASS_NAME()
 {
-    m_thread.release();
+    this->thread.release();
 }
 
 /**
@@ -75,7 +76,7 @@ CLASS_NAME::~CLASS_NAME()
  */
 void CLASS_NAME::run()
 {
-    RCLCPP_INFO(this->get_logger(), "%s has started. thread id = %0x", this->get_name(), std::this_thread::get_id());
+    RCLCPP_INFO_STREAM(this->get_logger(), this->get_name() << " has started. thread id = " << std::this_thread::get_id());
     
     // Main loop
     for(rclcpp::WallRate loop(1); rclcpp::ok(); loop.sleep()){

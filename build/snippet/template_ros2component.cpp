@@ -37,7 +37,7 @@ CLASS_NAME::CLASS_NAME(rclcpp::NodeOptions options) : rclcpp::Node("node_name", 
 
     // Initialize parameters
     RCLCPP_INFO(this->get_logger(), "Initialize parameters...");
-    this->forceSet(&this->RATE, this->declare_parameter("node.rate", 30));
+    this->forceSet(&this->LOOP_RATE, this->declare_parameter("node.rate", 30));
     RCLCPP_INFO(this->get_logger(), "Complete! Parameters were initialized.");
 
     // Initialize subscriber
@@ -79,7 +79,7 @@ void CLASS_NAME::run()
     RCLCPP_INFO_STREAM(this->get_logger(), this->get_name() << " has started. thread id = " << std::this_thread::get_id());
     
     // Main loop
-    for(rclcpp::WallRate loop(1); rclcpp::ok(); loop.sleep()){
+    for(rclcpp::WallRate loop(this->LOOP_RATE); rclcpp::ok(); loop.sleep()){
         
     }
 

@@ -33,7 +33,7 @@ public:
     CLASS_NAME(rclcpp::NodeOptions options = rclcpp::NodeOptions());
     ~CLASS_NAME();
 private:
-    const int RATE = -1;
+    const int LOOP_RATE = -1;
     template<typename T, typename U>void forceSet(const T *value, const U &set_value){*((T*)value)=set_value;}
     std::unique_ptr<std::thread> thread;
     void run();

@@ -43,7 +43,7 @@ ament_target_dependencies(${PROJECT_NAME}
   geometry_msgs
 )
 
-rclcpp_components_register_nodes(${PROJECT_NAME} "NAME_SPACE::CLASS_NAME")
+rclcpp_components_register_node(${PROJECT_NAME} PLUGIN "NAME_SPACE::CLASS_NAME" EXECUTABLE exe_name)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 
